@@ -15,9 +15,10 @@ route.get('/card/:value', async (req, res, next) => {
     });
 });
 
-route.get('/addcard/:value', async (req, res, next) => {
+route.get('/addcard/:cardid/:value', async (req, res, next) => {
+    const cardid = req.params.cardid;
     const value = req.params.value;
-    await db.query("INSERT INTO smartdesk_tb(cardid, timeout, state) VALUES (?,120,0);", [value], function (err, result, fields) {
+    await db.query("INSERT INTO smartdesk_tb(cardid, timeout, state) VALUES (?,?,0);", [cardid,value], function (err, result, fields) {
         if (err) {
             console.log(err);
             res.send({ err: true, message: err });
