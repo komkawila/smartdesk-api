@@ -24,7 +24,7 @@ route.get('/addcard/:cardid/:value', async (req, res, next) => {
             res.send({ err: true, message: err });
         } else {
             const json = { err: false, message: result };
-            res.send(result.length != 0 ? result[0] : '');
+            res.send(json);
         }
     });
 });
