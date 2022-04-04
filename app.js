@@ -13,9 +13,9 @@ app.use(
 app.use(cors());
 app.use(express.json());
 
-const deviceRoute = require('./routes/device/device');
-app.use('/device', deviceRoute);
+app.use('/device', require('./routes/device/device'));
+app.use('/configs', require('./routes/configs/configs'));
 
 app.listen(port, () =>
-    console.log(`Example app listening on port ${port}!`)
+    console.log(`smartdesk app listening on port ${port}!`)
 );
