@@ -3,7 +3,7 @@ const db = require('../../util/db.config');
 const route = express.Router();
 
 route.get('/status', async (req, res, next) => {
-    await db.query(`SSELECT * FROM status_tb WHERE names = 'camera_capture'`, function (err, result, fields) {
+    await db.query(`SELECT * FROM status_tb WHERE names = 'camera_capture'`, function (err, result, fields) {
         if (err) {
             console.log(err);
             res.send({ err: true, message: err });
